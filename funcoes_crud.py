@@ -43,7 +43,7 @@ def listar_contatos():
         return
     
     # Percorre a lista e exibe cada contato
-    for i, contato in enumerate(contatos, strart=1):
+    for i, contato in enumerate(contatos, start=1):
         print(f"\n {i}. Nome: {contato['nome']}")
         print(f"Email: {contato['email']}")
         print(f"Telefone: {contato['telefone']}")
