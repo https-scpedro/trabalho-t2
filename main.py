@@ -1,5 +1,5 @@
 # Importa as funções que o usuário pode executar
-from funcoes_crud import adicionar_contato, listar_contatos, atualizar_contato, deletar_contato
+from src.funcoes_crud import adicionar_contato, listar_contatos, atualizar_contato, deletar_contato
 
 def exibir_menu(): # Exibe o menu de opções
     print("\n ----- Menu de Contatos -----")

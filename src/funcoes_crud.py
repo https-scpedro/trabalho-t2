@@ -1,5 +1,5 @@
 # Importa as funções de persistência de dados
-from persistencia import salvar_dados, carregar_dados
+from src.persistencia import salvar_dados, carregar_dados
 
 # Função para adicionar um novo contato
 def adicionar_contato():
