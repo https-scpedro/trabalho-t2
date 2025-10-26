@@ -1,5 +1,6 @@
-# Importa as funções de persistência de dados
+# Importa as funções de persistência de dados e formatação de telefone
 from src.persistencia import salvar_dados, carregar_dados
+from src.utils import formatar_telefone_salvar, formatar_telefone_exibicao
 
 # Função para adicionar um novo contato
 def adicionar_contato():
@@ -16,11 +17,14 @@ def adicionar_contato():
             print("\nErro: Já existe um contato com este email.")
             return
         
+    # Padroniza o telefone para salvar
+    telefone_formatado = formatar_telefone_salvar(telefone)
+        
     # Cria um dicionário para o novo contato
     novo_contato = {
         'nome': nome,
         'email': email,
-        'telefone': telefone
+        'telefone': telefone_formatado
     }
 
     # Adiciona o novo contato à lista
@@ -42,11 +46,15 @@ def listar_contatos():
         print("Nenhum contato encontrado.")
         return
     
+
     # Percorre a lista e exibe cada contato
     for i, contato in enumerate(contatos, start=1):
+        # Pega o telefone salvo (só dígitos) e formata para exibição
+        telefone_exibicao = formatar_telefone_exibicao(contato['telefone'])
+
         print(f"\n {i}. Nome: {contato['nome']}")
         print(f"Email: {contato['email']}")
-        print(f"Telefone: {contato['telefone']}")
+        print(f"Telefone: {telefone_exibicao}")
 
 
 # Função para atualizar um contato
@@ -67,14 +75,17 @@ def atualizar_contato():
     if contato_encontrado:
         print("Contato encontrado. Deixe em branco para não alterar.")
 
+        # Formata o telefone para exibição
+        telefone_atual_exibicao = formatar_telefone_exibicao(contato_encontrado['telefone'])
+
         novo_nome = input(f"Novo nome ({contato_encontrado['nome']}): ")
-        novo_telefone = input(f"Novo telefone ({contato_encontrado['telefone']}): ")
+        novo_telefone = input(f"Novo telefone ({telefone_atual_exibicao}): ")
 
         # Atualiza os dados do contato se novos valores forem fornecidos
         if novo_nome:
             contato_encontrado['nome'] = novo_nome
         if novo_telefone:
-            contato_encontrado['telefone'] = novo_telefone
+            contato_encontrado['telefone'] = formatar_telefone_salvar(novo_telefone)
 
         # Salva a lista atualizada de contatos
         salvar_dados(contatos)
