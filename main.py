@@ -11,3 +11,20 @@ def exibir_menu(): # Exibe o menu de opções
     print("----------------------------")
     return input("Escolha uma opção: ")
 
+def main(): # Função principal, executa o loop do programa
+    while True:
+        opcao = exibir_menu() # Exibe o menu de opções
+
+        if opcao == '1':
+            adicionar_contato() # Chama a função para adicionar um contato
+        elif opcao == '2':
+            listar_contatos() # Chama a função para listar contatos
+        elif opcao == '3':
+            atualizar_contato() # Chama a função para atualizar um contato
+        elif opcao == '4':
+            deletar_contato() # Chama a função para deletar um contato
+        elif opcao == '5':
+            print("Saindo do programa.")
+            break # Quebra o loop e encerra o programa
+        else:
+            print("Opção inválida. Por favor, tente novamente.")
