@@ -31,11 +31,13 @@ O código foi organizado da seguinte maneira para garantir a separação de resp
 
 * **`main.py`**: Ponto de entrada do programa. Controla o menu e o loop principal.
 * **`contatos.json`**: É o banco de dados, o arquivo onde os contatos são salvos.
+* **`.gitignore`**: Arquivo que diz ao Git pastas para serem ignoradas (como pycache).
 * **`README.md`**: Este arquivo de explicação.
 * **`src/` (Pasta):** Esta pasta contém toda a lógica do programa.
     * **`__init__.py`**: Arquivo vazio que define a pasta `src` como um "pacote" Python.
     * **`funcoes_crud.py`**: Contém as funções principais (Adicionar, Listar, Atualizar, Deletar).
     * **`persistencia.py`**: Contém as funções que leem e salvam os dados no `contatos.json`.
+    * **`utils.py`**: Funções auxiliares (formatar os números de telefone).
 
 
 ## 4. Como Executar
