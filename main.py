@@ -28,3 +28,7 @@ def main(): # Função principal, executa o loop do programa
             break # Quebra o loop e encerra o programa
         else:
             print("Opção inválida. Por favor, tente novamente.")
+
+
+if __name__ == "__main__":
+    main()
